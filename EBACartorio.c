@@ -120,61 +120,73 @@ int deletar()
 }
 
 
-int main() {
+int main()
+ {
 	int opcao=0; //separando a variável que vamos utilizar
 	int laco=1;
+	char senhadigitada[]="a";
+	int comparacao; 
+	
+	printf("***Cartório da EBAC***");
+	printf("Login necessário!\n\nDigite sua senha para entrar: ");
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0)
+	{
+		system("cls");
+		for(laco=1; laco=1;)  //quando iguala dessa forma nunca encerra o programa
+
+	 	{
+
+			system("cls"); //responsável por limpar a tela
+
+			setlocale(LC_ALL, "Portuguese"); //escolhendo a linguagem
 
 
-	for(laco=1; laco=1;) { //quando iguala dessa forma nunca encerra o programa
+			printf("\tCartório EBAC \n\n"); //pagina principal do menu
+			printf("Escolha o que deseja fazer: \n\n");
+			printf("\t1 - Cadastrar nomes\n");
+			printf("\t2 - Consultar nomes\n");
+			printf("\t3 - Deletar nomes\n"); //fim do menu
+			printf("\t4 - Sair do progama\n\n");
+			printf("Opção desejada: ");
 
+			scanf("%d", &opcao); //armazenando o que o usuário esscolher
 
-		system("cls"); //responsável por limpar a tela
+			system("cls"); //limpando a tela após escolha
 
-		setlocale(LC_ALL, "Portuguese"); //escolhendo a linguagem
-
-
-		printf("\tCartório EBAC \n\n"); //pagina principal do menu
-		printf("Escolha o que deseja fazer: \n\n");
-		printf("\t1 - Cadastrar nomes\n");
-		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar nomes\n"); //fim do menu
-		printf("\t4 - Sair do progama\n\n");
-		printf("Opção desejada: ");
-
-		scanf("%d", &opcao); //armazenando o que o usuário esscolher
-
-		system("cls"); //limpando a tela após escolha
-
-		switch(opcao) 
-		{
-			case 1:
-				registro(); //chamada de função
-				break;
+			switch(opcao) 
+			{
+				case 1:
+					registro(); //chamada de função
+					break;
 			
 				
-			case 2:
-			    consulta(); //chamada de função
-			    break;
+				case 2:
+			    	consulta(); //chamada de função
+			    	break;
 
-			case 3:
-		     	deletar(); //chamada de função
-			 	break;
+				case 3:
+		     		deletar(); //chamada de função
+			 		break;
 			 	
-			case 4:
-				printf("Obrigado por utilizar o sistema");
-				return 0;
-				break;
+				case 4:
+					printf("Obrigado por utilizar o sistema");
+					return 0;
+					break;
 				
-			default:  //tudo que nao for falado antes
-				printf("Ecolha uma opção válida\n");
-				system("pause");
-				break;
+				default:  //tudo que nao for falado antes
+					printf("Ecolha uma opção válida\n");
+					system("pause");
+					break;
+				} //final da seleção
+		} //final do for
 
-
-
-		}
-
-
-	} //final do for
-}
+	} //final if senha
+	
+		else
+			printf("Senha incorreta!");
+} //final da main
 
